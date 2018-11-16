@@ -1,0 +1,17 @@
+@include keyframes(shake, $_vendors) {
+  from, to {
+    @include prefix((transform: translate3d(0, 0, 0)), $_vendor-prefixes);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    @include prefix((transform: translate3d(-10px, 0, 0)), $_vendor-prefixes);
+  }
+
+  20%, 40%, 60%, 80% {
+    @include prefix((transform: translate3d(10px, 0, 0)), $_vendor-prefixes);
+  }
+}
+
+@mixin shake {
+  @include animation-name(shake);
+}

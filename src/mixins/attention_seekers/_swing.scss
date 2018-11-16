@@ -1,0 +1,25 @@
+@include keyframes(swing, $_vendors) {
+  20% {
+    @include prefix((transform: rotate3d(0, 0, 1, 15deg)), $_vendor-prefixes);
+  }
+
+  40% {
+    @include prefix((transform: rotate3d(0, 0, 1, -10deg)), $_vendor-prefixes);
+  }
+
+  60% {
+    @include prefix((transform: rotate3d(0, 0, 1, 5deg)), $_vendor-prefixes);
+  }
+
+  80% {
+    @include prefix((transform: rotate3d(0, 0, 1, -5deg)), $_vendor-prefixes);
+  }
+
+  to {
+    @include prefix((transform: rotate3d(0, 0, 1, 0deg)), $_vendor-prefixes);
+  }
+}
+
+@mixin swing {
+  @include prefix((transform-origin: top center, animation-name: swing), $_vendor-prefixes);
+}

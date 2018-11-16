@@ -1,0 +1,33 @@
+// == Base
+@mixin animated($animation-duration-time: 1s, $animation-delay-time: 0s, $animation-fill-mode: both) {
+	 -webkit-animation-duration: $animation-duration-time;
+	    -moz-animation-duration: $animation-duration-time;
+	         animation-duration: $animation-duration-time;
+	    -webkit-animation-delay: $animation-delay-time;
+	       -moz-animation-delay: $animation-delay-time;
+	            animation-delay: $animation-delay-time;
+	-webkit-animation-fill-mode: $animation-fill-mode;
+	   -moz-animation-fill-mode: $animation-fill-mode;
+	        animation-fill-mode: $animation-fill-mode;
+}
+
+// == Infinite
+@mixin infinite {
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}
+
+// == Duration for: flipOutX, flipOutY, bounceIn, bounceOut
+@mixin duration-extra($animation-duration-time: .75s) {
+  -moz-animation-duration: $animation-duration-time;
+  -webkit-animation-duration: $animation-duration-time;
+  animation-duration: $animation-duration-time;
+}
+
+// == Duration for hinge
+@mixin duration-hinge($animation-duration-time: 2s) {
+  -moz-animation-duration: $animation-duration-time;
+  -webkit-animation-duration: $animation-duration-time;
+  animation-duration: $animation-duration-time;
+}

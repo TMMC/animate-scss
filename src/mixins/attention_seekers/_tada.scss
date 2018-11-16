@@ -1,0 +1,25 @@
+@include keyframes(tada, $_vendors) {
+  from {
+    @include prefix((transform: scale3d(1, 1, 1)), $_vendor-prefixes);
+  }
+
+  10%, 20% {
+    @include prefix((transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)), $_vendor-prefixes);
+  }
+
+  30%, 50%, 70%, 90% {
+    @include prefix((transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)), $_vendor-prefixes);
+  }
+
+  40%, 60%, 80% {
+    @include prefix((transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)), $_vendor-prefixes);
+  }
+
+  to {
+    @include prefix((transform: scale3d(1, 1, 1)), $_vendor-prefixes);
+  }
+}
+
+@mixin tada {
+  @include animation-name(tada);
+}

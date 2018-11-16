@@ -1,0 +1,35 @@
+/* originally authored by Nick Pettit - https://github.com/nickpettit/glide */
+
+@include keyframes(wobble, $_vendors) {
+  from {
+    @include prefix((transform: none), $_vendor-prefixes);
+  }
+
+  15% {
+    @include prefix((transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg)), $_vendor-prefixes);
+  }
+
+  30% {
+    @include prefix((transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg)), $_vendor-prefixes);
+  }
+
+  45% {
+    @include prefix((transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg)), $_vendor-prefixes);
+  }
+
+  60% {
+    @include prefix((transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg)), $_vendor-prefixes);
+  }
+
+  75% {
+    @include prefix((transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg)), $_vendor-prefixes);
+  }
+
+  to {
+    @include prefix((transform: none), $_vendor-prefixes);
+  }
+}
+
+@mixin wobble {
+  @include animation-name(wobble);
+}
