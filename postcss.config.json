@@ -1,0 +1,21 @@
+{
+  "local-plugins": true,
+  "map": false,
+  "autoprefixer": {
+    "add": true,
+    "browsers": [
+      ">= 2%",
+      "last 2 versions",
+      "not dead",
+      "Android >= 4.4",
+      "IE >= 10",
+      "Edge >= 10",
+      "Chrome >= 40",
+      "Firefox >= 20",
+      "Opera >= 20"
+    ],
+    "cascade": true,
+    "remove": true,
+    "flexbox": true,
+  }
+}
