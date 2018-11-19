@@ -6,5 +6,6 @@
 .bak
 .sass-cache
 .npmrc
+README.md.bak
 package-lock.json
 node_modules/
