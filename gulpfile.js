@@ -16,10 +16,10 @@ banner                       = [
   ' * Licensed under the MIT license - http://opensource.org/licenses/MIT',
   ' * Copyright (c) ' + new Date().getFullYear() + ' ' + pkg.author.name + ' - ' + pkg.author.url,
   ' * ',
-  ' * ' + pkg.description + ' ' + pkg.homepage,
-  ' * Copyright (c) ' + new Date().getFullYear() + ' Daniel Eden - https://daneden.me/',
-  ' */',
-  '\n'
+  ' * ' + pkg.description,
+  ' * ' + pkg.config.origin.name + ' - v.' + pkg.config.origin.version + ' - ' + pkg.homepage,
+  ' * Copyright (c) ' + new Date().getFullYear() + ' ' + pkg.config.origin.author.name + ' - ' + pkg.config.origin.author.url,
+  ' */\n\n'
 ].join('\n');
 
 sass.compiler                = require('node-sass');
@@ -30,29 +30,29 @@ sass.compiler                = require('node-sass');
 
 // == stylesheets: process SASS files (minify if in production mode) and autoprefix compiled CSS
 function stylesheets() {
-  return src(pkg.src + '/animate.scss')
-    .pipe(sass(pkg.sassOptions.dev).on('error', sass.logError))
+  return src(pkg.config.src + '/animate.scss')
+    .pipe(sass(pkg.config.sassOptions.dev).on('error', sass.logError))
     .pipe(header(banner))
-    .pipe(autoprefixer(pkg.autoprefixerOptions))
-    .pipe(dest(pkg.dist))
-    .pipe(sass(pkg.sassOptions.prod).on('error', sass.logError))
+    .pipe(autoprefixer(pkg.config.autoprefixerOptions))
+    .pipe(dest(pkg.config.dist))
+    .pipe(sass(pkg.config.sassOptions.prod).on('error', sass.logError))
     .pipe(rename({ extname : '.min.css' }))
     .pipe(autoprefixer(pkg.autoprefixerOptions))
-    .pipe(dest(pkg.dist));
+    .pipe(dest(pkg.config.dist));
 }
 stylesheets.description = 'Process SASS files and autoprefix compiled CSS.';
 exports.stylesheets = stylesheets;
 
 // == watcher: watch for changes in SASS sources to run corresponding task
 function watcher() {
-  watch(pkg.src + '/**/*.{scss,sass}', { ignoreInitial: false }, stylesheets);
+  watch(pkg.config.src + '/**/*.{scss,sass}', { ignoreInitial: false }, stylesheets);
 }
 watcher.description = 'Watch for changes in SASS sources to run corresponding task.';
 exports.watcher = watcher;
 
 // == clean: remove dist directory
 function clean() {
-  return del(pkg.dist).then(paths => {
+  return del(pkg.config.dist).then(paths => {
     if (paths.length) {
       console.log(ansi.yellow.bold('Deleted files and folders:\n'), ansi.yellow(paths.join('\n')));
     } else {

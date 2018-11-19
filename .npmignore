@@ -3,8 +3,8 @@
 .idea
 .ini
 .log
+.git
 .bak
 .sass-cache
 .npmrc
 package-lock.json
-node_modules/
