@@ -1,7 +1,5 @@
 # animate-scss - SASS version of cross-browser CSS animations library by Daniel Eden.
 
-[![npm (scoped)](https://img.shields.io/npm/v/@tmmc/animate-scss.svg)](https://github.com/TMMC/animate-scss)
-
 You can find all information at https://daneden.github.io/animate.css/.  
 All credits go to [Daniel Eden](https://daneden.me/).
 
